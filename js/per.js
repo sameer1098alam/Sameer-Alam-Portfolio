@@ -78,30 +78,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Form submission handling
+    event.preventDefault();
     const form = document.getElementById('contact-form');
     if (form) {
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
-            
+
+            // Create FormData object from form
             const formData = new FormData(form);
-            const data = {};
-            formData.forEach((value, key) => { data[key] = value });
+
+            // Convert FormData to a JSON object
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                mobile: formData.get('mobile'),
+                subject: formData.get('subject'),
+                message: formData.get('message')
+            };
 
             try {
-                const response = await fetch('/send', {
+                // Send POST request to backend
+                const response = await fetch('https://backend-r0qa.onrender.com/send', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
+
                 if (response.ok) {
                     alert('Message sent successfully!');
                     form.reset();
                 } else {
-                    alert('Error sending message.');
+                    const errorText = await response.text();
+                    console.error('Error sending message:', errorText);
+                    alert(`Error sending message: ${errorText}`);
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('Error sending message.');
+                alert('Error sending message. Please try again later.');
             }
         });
     } else {
