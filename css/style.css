@@ -100,7 +100,7 @@ section{
     
 }
 .home-img img{
-    width:29vw;
+    width:28vw;
     animation:floatImage 4s ease-in-out infinite;
 }
 @keyframes floatImage{
@@ -124,7 +124,7 @@ span{
     color:var(--main-colar)
 }
 .home-img img{
-    width: 35vw;
+    width: 29vw;
     border-radius: 50%;
 }
 .home-content p{
