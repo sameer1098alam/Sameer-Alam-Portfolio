@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sameer Alam | Full Stack Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <base href="/"> <!-- Ensures consistent path resolution -->
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sameer Alam | About Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <base href="/"> <!-- Ensures consistent path resolution -->
+</head>
+
+<body>
+    <!-- Header Component -->
+    <header class="header">
+        <a href="index.html" class="logo">Sameer Alam</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="timeline.html">Journey</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="https://res.cloudinary.com/drodjzglr/image/upload/v1743593170/1_mo1c3x.png" alt="Sameer Alam" loading="lazy">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>Full Stack Developer</h3>
+            <p>I'm a passionate computer science student with expertise in both front-end and back-end development. My journey in technology began with a curiosity about how things work, which evolved into a love for creating digital solutions.</p>
+            <p>Currently pursuing my B.Tech at SRM University, I've had the privilege of receiving a scholarship for my academic achievements. Beyond coding, I enjoy problem-solving, learning new technologies, and collaborating on innovative projects.</p>
+            <p>My goal is to develop applications that make a positive impact while continuously expanding my knowledge in emerging technologies like cloud computing and DevOps.</p>
+            <div class="skills">
+                <h4>Technical Skills:</h4>
+                <ul>
+                    <li>JavaScript (React, Node.js)</li>
+                    <li>Python, Java, C++</li>
+                    <li>HTML5, CSS3, Bootstrap</li>
+                    <li>MongoDB, MySQL</li>
+                    <li>AWS, Docker, Kubernetes</li>
+                </ul>
+            </div>
+            <a href="contact.html" class="btn">Let's Connect</a>
+        </div>
+    </section>
+
+    <!-- JavaScript Files -->
+    <script src="js/script.js"></script>
+    
+    <!-- Navigation Fix Script -->
+    <script>
+        // Highlight current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.navbar a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Mobile menu toggle functionality
+            const menuIcon = document.getElementById('menu-icon');
+            const navbar = document.querySelector('.navbar');
+            
+            menuIcon.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                menuIcon.classList.toggle('bx-x');
+            });
+        });
+    </script>
+</body>
+</html>
